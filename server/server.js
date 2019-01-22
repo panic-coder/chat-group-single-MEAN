@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const cors = require('cors');
 const http = require('http');
 const server = http.Server(app);
@@ -13,7 +14,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
 app.use(bodyParser.json());
+app.use(expressValidator());
+
 
 var env = process.env.NODE_ENV || "local";
 var config = require("./config/" + env);

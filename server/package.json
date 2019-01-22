@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "start:local":"export NODE_ENV=local && nodemon server.js"
+    "start:local": "export NODE_ENV=local && nodemon server.js"
   },
   "keywords": [
     "socket",
@@ -16,10 +16,13 @@
   "author": "Kumar Shubham",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.5",
     "nodemon": "^1.18.9",
     "socket.io": "^2.2.0"
