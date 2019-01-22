@@ -3,12 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const PORT = 3000;
-var http = require('http');
-var server = http.Server(app);
-var socketIO = require('socket.io');
-var io = socketIO(server);
-
+const http = require('http');
+const server = http.Server(app);
+const socketIO = require('socket.io');
+const io = socketIO(server);
+require('dotenv').config()
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -16,15 +15,18 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json());
 
+var env = process.env.NODE_ENV || "local";
+var config = require("./config/" + env);
+
+startMongo(config.mongo);
+
 mongoose.Promise = global.Promise;
 
 function startMongo(mongoObj) {
-    mongoose.set('useCreateIndex', true);
-    mongoose.connect(mongoObj, {
-        useNewUrlParser: true
-    });
+    mongoose.set(mongoObj.createIndex);
+    mongoose.connect(mongoObj.url, mongoObj.options);
     mongoose.connection.on("connected", () => {
-        console.log("connected to mongodb on %s", mongoObj);
+        console.log("connected to mongodb on %s", mongoObj.url);
     })
     mongoose.connection.on("error", (err) => {
         if (err) {
@@ -33,6 +35,7 @@ function startMongo(mongoObj) {
         }
     })
 }
+
 app.get('/', (req, res) => {
     res.json({
         "message": "Welcome to chat application."
@@ -46,8 +49,6 @@ io.on('connection', function (socket) {
     });
 });
 
-startMongo("mongodb://localhost:27017/chatGroupSingle");
-
-app.listen(PORT, () => {
-    console.log("Server is listening on port " + PORT);
+app.listen(config.PORT, () => {
+    console.log("Server is listening on port " + config.PORT);
 });
