@@ -9,6 +9,11 @@ import { MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 
@@ -25,8 +30,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FlexLayoutModule,
     MatIconModule,
-    FormsModule, 
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatTabsModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -38,8 +47,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FlexLayoutModule,
     MatIconModule,
-    FormsModule, 
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatTabsModule
   ]
 })
 export class AppMaterialModule { }
