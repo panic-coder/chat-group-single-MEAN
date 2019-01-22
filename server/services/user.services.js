@@ -9,3 +9,17 @@ exports.registration = (data, callback) => {
         }
     })
 }
+
+exports.login = (data, callback) => {
+    userModel.login(data, (error , wrongPassword, result, notRegistered) => {
+        if(error) {
+            callback(error);
+        } else if(wrongPassword) {
+            callback(null, wrongPassword, null);
+        } else if(result != null) {
+            callback(null, null, result);
+        } else {
+            callback(null, null, null, notRegistered);
+        }
+    })
+}

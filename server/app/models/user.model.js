@@ -35,6 +35,32 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('user', UserSchema);
 
+bcryptSave = (password, callback) => {
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+        bcrypt.hash(password, salt, function (err, hash) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, hash);
+            }
+        });
+    });
+}
+
+bcryptCompare = (password, hashedPassword, callback) => {
+    bcrypt.compare(password, hashedPassword, function (err, res) {
+        if (err) {
+            callback(err);
+        } else if (res) {
+            callback(null, res);
+        } else if (!res) {
+            callback(null, res);
+        } else {
+            callback("Something went wrong");
+        }
+    });
+}
+
 function UserSchemaModel() {
 
 }
@@ -57,30 +83,26 @@ UserSchemaModel.prototype.save = (data, callback) => {
     })
 }
 
-bcryptSave = (password, callback) => {
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-        bcrypt.hash(password, salt, function (err, hash) {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null, hash);
-            }
-        });
-    });
-}
-
-bcryptCompare = (password, hashedPassword) => {
-    bcrypt.compare(password, hashedPassword, function (err, res) {
-        if (err) {
-            callback(err);
-        } else if (res) {
-            callback(null, res);
-        } else if (!res) {
-            callback(null, res);
+UserSchemaModel.prototype.login = (data, callback) => {
+    User.findOne({
+        user_name: data.user_name
+    }, (error, result) => {
+        if (error) {
+            callback(error);
+        } else if (result != null) {
+            bcryptCompare(data.password, result.password, (errorPassword, resultPassword) => {
+                if (errorPassword) {
+                    callback(errorPassword);
+                } else if (resultPassword) {
+                    callback(null, null, resultPassword);
+                } else {
+                    callback(null, "Wrong password", null);
+                }
+            })
         } else {
-            callback("Something went wrong");
+            callback( null, null, null, "Not a registered user")
         }
-    });
+    })
 }
 
 module.exports = new UserSchemaModel();
