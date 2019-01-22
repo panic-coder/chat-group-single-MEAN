@@ -8,6 +8,7 @@ const http = require('http');
 const server = http.Server(app);
 const socketIO = require('socket.io');
 const io = socketIO(server);
+const userRoutes = require('./routes/user.routes');
 require('dotenv').config()
 
 app.use(cors());
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 app.use(expressValidator());
-
+app.use('/', userRoutes);
 
 var env = process.env.NODE_ENV || "local";
 var config = require("./config/" + env);
