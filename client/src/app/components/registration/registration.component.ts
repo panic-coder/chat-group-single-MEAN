@@ -30,18 +30,18 @@ export class RegistrationComponent implements OnInit {
 
   }
   getErrorMessageFirstName() {
-    return this.email.hasError('required') ? 'First name is a required field' :
+    return this.firstName.hasError('required') ? 'First name is a required field' :
       '';
   }
 
   getErrorMessageLastName() {
-    return this.email.hasError('required') ? 'Last name is a required field' :
-    '';
+    return this.lastName.hasError('required') ? 'Last name is a required field' :
+      '';
   }
 
   getErrorMessageUsername() {
-    return this.email.hasError('required') ? 'Username is a required field' :
-    '';
+    return this.username.hasError('required') ? 'Username is a required field' :
+      '';
   }
 
   getErrorMessage() {
@@ -51,8 +51,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   getErrorMessagePassword() {
-    return this.email.hasError('required') ? 'Password is a required field' :
-    '';
+    return this.password.hasError('required') ? 'Password is a required field' :
+      '';
   }
 
 }

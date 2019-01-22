@@ -11,12 +11,14 @@
             <form class="my-form">
               <mat-form-field class="full-width">
                 <mat-label>Username</mat-label>
-                <input autocomplete="off" matInput placeholder="Username" name="Username">
+                <input autocomplete="off" matInput placeholder="Username" [formControl]="username">
+                <mat-error *ngIf="username.invalid">{{getErrorMessageUsername()}}</mat-error>
               </mat-form-field>
               <mat-form-field class="full-width">
                 <mat-label>Password</mat-label>
-                <input autocomplete="off" matInput placeholder="Password" name="password" [type]="hide ? 'password' : 'text'">
+                <input autocomplete="off" matInput placeholder="Password" [formControl]="username" [formControl]="password" [type]="hide ? 'password' : 'text'">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
               </mat-form-field>
             </form>
           </mat-card-content>

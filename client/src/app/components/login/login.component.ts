@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
   hide = true;
+  username = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
 
   ngOnInit() {
   }
@@ -21,6 +24,16 @@ export class LoginComponent implements OnInit {
 
   registration() {
     this.router.navigate(['registration']);
+  }
+
+  getErrorMessageUsername() {
+    return this.username.hasError('required') ? 'Username is a required field' :
+    '';
+  }
+
+  getErrorMessagePassword() {
+    return this.password.hasError('required') ? 'Password is a required field' :
+    '';
   }
 
 }
