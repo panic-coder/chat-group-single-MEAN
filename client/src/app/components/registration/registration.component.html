@@ -11,19 +11,28 @@
             <form class="my-form">
               <mat-form-field class="full-width">
                 <mat-label>First Name</mat-label>
-                <input autocomplete="off" class="full-width" matInput placeholder="First name" name="fname" required>
+                <input autocomplete="off" class="full-width" matInput placeholder="First name" [formControl]="firstName" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessageFirstName()}}</mat-error>
               </mat-form-field>
               <mat-form-field class="full-width">
                 <mat-label>Last Name</mat-label>
-                <input autocomplete="off" class="full-width" matInput placeholder="Last Name" name="lname" required>
+                <input autocomplete="off" class="full-width" matInput placeholder="Last Name" [formControl]="lastName" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessageLastName()}}</mat-error>
               </mat-form-field>
               <mat-form-field class="full-width">
+                  <mat-label>Username</mat-label>
+                  <input autocomplete="off" class="full-width" matInput placeholder="Username" [formControl]="username" required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessageUsername()}}</mat-error>
+                </mat-form-field>
+              <mat-form-field class="full-width">
                 <mat-label>Email</mat-label>
-                <input autocomplete="off" class="full-width" matInput placeholder="Email" name="email">
+                <input autocomplete="off" class="full-width" matInput placeholder="Email" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
               <mat-form-field class="full-width">
                 <mat-label>Password</mat-label>
-                <input autocomplete="off" class="full-width" matInput placeholder="Password" name="password">
+                <input type="password" autocomplete="off" class="full-width" matInput placeholder="Password" [formControl]="password" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessagePassword()}}</mat-error>
               </mat-form-field>
             </form>
             <div fxLayout="coloumn" fxLayoutAlign="center center">

@@ -10,28 +10,29 @@
           <mat-card-content>
             <form class="my-form">
               <mat-form-field class="full-width">
-                <mat-label>Email</mat-label>
-                <input autocomplete="off" matInput placeholder="Email" name="email">
+                <mat-label>Username</mat-label>
+                <input autocomplete="off" matInput placeholder="Username" name="Username">
               </mat-form-field>
               <mat-form-field class="full-width">
                 <mat-label>Password</mat-label>
-                <input autocomplete="off" matInput placeholder="Password" name="password">
+                <input autocomplete="off" matInput placeholder="Password" name="password" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </mat-form-field>
             </form>
           </mat-card-content>
           <mat-card-actions>
             <div fxLayout="column" fxLayoutAlign="center center">
               <div class="button">
-                  <button mat-raised-button class="width-button" (click)="login()" color="primary">LOGIN</button>
+                <button mat-raised-button class="width-button" (click)="login()" color="primary">LOGIN</button>
               </div>
               <div class="button">
-                  <button mat-raised-button class="width-button" (click)="registration()" color="primary">REGISTRATION</button>
+                <button mat-raised-button class="width-button" (click)="registration()" color="primary">REGISTRATION</button>
               </div>
             </div>
             <div class="forgot-password">
               <a href="">Forgot Password</a>
             </div>
-            
+
           </mat-card-actions>
         </mat-card>
       </div>

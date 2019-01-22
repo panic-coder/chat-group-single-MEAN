@@ -7,6 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatIconModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatIconModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -30,7 +36,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatIconModule,
+    FormsModule, 
+    ReactiveFormsModule
   ]
 })
 export class AppMaterialModule { }
