@@ -1,3 +1,43 @@
-<p>
-  login works!
-</p>
+<div fxFlex>
+  <div fxFlex.lg="25%"></div>
+  <div fxFlex.lg="50" fxLayout="column">
+    <div fxFlex.lg="30"></div>
+    <div fxLayout="row" fxFlex.lg="40">
+      <div fxFlex.lg="15"></div>
+      <div fxFlex.lg="70">
+        <mat-card class="my-card">
+          <mat-card-title fxLayoutAlign="center center" class="login-title">LOGIN</mat-card-title>
+          <mat-card-content>
+            <form class="my-form">
+              <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input autocomplete="off" matInput placeholder="Email" name="email">
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input autocomplete="off" matInput placeholder="Password" name="password">
+              </mat-form-field>
+            </form>
+          </mat-card-content>
+          <mat-card-actions>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <div class="button">
+                  <button mat-raised-button class="width-button" (click)="login()" color="primary">LOGIN</button>
+              </div>
+              <div class="button">
+                  <button mat-raised-button class="width-button" (click)="registration()" color="primary">REGISTRATION</button>
+              </div>
+            </div>
+            <div class="forgot-password">
+              <a href="">Forgot Password</a>
+            </div>
+            
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div fxFlex.lg="15"></div>
+    </div>
+    <div fxFlex.lg="30"></div>
+  </div>
+  <div fxFlex.lg="25%"></div>
+</div>

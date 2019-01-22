@@ -1,3 +1,41 @@
-<p>
-  registration works!
-</p>
+<div fxFlex>
+  <div fxLayout="column">
+    <div fxFlex.lg="20"></div>
+    <div fxFlex.lg="60">
+      <!-- <div></div> -->
+      <div fxLayout="row">
+        <div fxFlex.lg="15"></div>
+        <div fxFlex.lg="70" class="card-div">
+          <mat-card>
+            <mat-card-title fxLayoutAlign="center center" class="login-title">REGISTRATION</mat-card-title>
+            <form class="my-form">
+              <mat-form-field class="full-width">
+                <mat-label>First Name</mat-label>
+                <input autocomplete="off" class="full-width" matInput placeholder="First name" name="fname" required>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input autocomplete="off" class="full-width" matInput placeholder="Last Name" name="lname" required>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input autocomplete="off" class="full-width" matInput placeholder="Email" name="email">
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input autocomplete="off" class="full-width" matInput placeholder="Password" name="password">
+              </mat-form-field>
+            </form>
+            <div fxLayout="coloumn" fxLayoutAlign="center center">
+              <div class="div-button"><button class="button-registration" mat-raised-button color="primary" (click)="register()" >REGISTRATION</button></div>
+              <div class="div-button"><button class="button-login" mat-raised-button color="primary" (click)="login()" >LOGIN</button></div>
+            </div>
+          </mat-card>
+        </div>
+        <div fxFlex.lg="15"></div>
+      </div>
+      <!-- <div></div> -->
+    </div>
+    <div fxFlex.lg="20"></div>
+  </div>
+</div>
