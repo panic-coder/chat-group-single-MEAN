@@ -94,7 +94,7 @@ UserSchemaModel.prototype.login = (data, callback) => {
                 if (errorPassword) {
                     callback(errorPassword);
                 } else if (resultPassword) {
-                    callback(null, null, resultPassword);
+                    callback(null, null, result);
                 } else {
                     callback(null, "Wrong password", null);
                 }
