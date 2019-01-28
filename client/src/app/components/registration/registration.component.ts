@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  registration() {
+  register() {
     console.log("register");
 
   }

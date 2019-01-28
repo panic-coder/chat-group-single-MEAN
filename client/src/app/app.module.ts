@@ -7,8 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppMaterialModule } from './app-material.module';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { ChatService } from './services/chat.service';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { AppMaterialModule } from './app-material.module';
     BrowserModule,
     AppRoutingModule,
     AppMaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ChatService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
