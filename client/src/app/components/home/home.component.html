@@ -36,46 +36,51 @@
               <!-- <mat-list-item *ngFor="let member of selectedConversation.members | keys">
                 <p>{{member.value.user.name}}</p>
               </mat-list-item> -->
-              <mat-list-item >
-                  <p>Shubham</p>
-                  <p></p>
-                </mat-list-item>
+              <!-- <mat-list-item > -->
+                  <!-- <p>Shubham</p> -->
+                  <!-- <p></p> -->
+                  <div *ngFor="let data of chatArray">
+                    <div>{{data.text}}</div>
+                  </div>
+                <!-- </mat-list-item> -->
             </mat-list>
       </mat-card>
     <!-- </mat-sidenav> -->
     <!-- <section class="empty-conversation" *ngIf="!selectedConversation"> -->
-      <h1 class="mat-display-1">Select a conversation from the left to start chatting</h1>
+      <!-- <h1 class="mat-display-1">Select a conversation from the left to start chatting</h1> -->
     <!-- </section> -->
     <!-- <section *ngIf="selectedConversation"> -->
-        <div class="mat-typography conversation-header">
-            <h2>
-              <mat-icon>forum</mat-icon>
+        <!-- <div class="mat-typography conversation-header"> -->
+            <!-- <h2> -->
+              <!-- <mat-icon>forum</mat-icon> -->
               <!-- {{selectedConversation.display_name}}</h2> -->
-              Shubham}</h2>
-            <p>
-              <mat-icon>account_circle</mat-icon>
+              <!-- Shubham</h2> -->
+            <!-- <p> -->
+              <!-- <mat-icon>account_circle</mat-icon> -->
               <!-- {{(selectedConversation.members | keys).length}} Members</p>-->
-              5 Members</p>
-          </div>
+              <!-- 5 Members</p> -->
+          <!-- </div> -->
       
       <mat-divider></mat-divider>
-      <mat-list dense class="conversation-history mat-typography">
+      <!-- <mat-list dense class="conversation-history mat-typography"> -->
           <!-- <mat-list-item *ngFor="let event of events; index as i" [dir]="event.from === selectedConversation.me.id ? 'rtl' : 'ltr'"> -->
-              <mat-list-item>
+              <!-- <mat-list-item> -->
             <!-- <img *ngIf="event.type == 'text'" matListAvatar matTooltip="{{selectedConversation.members[event.from].user.name}}" src="https://randomuser.me/api/portraits/thumb/lego/{{i}}.jpg" -->
             <!-- /> -->
+            
+            
             <!-- <p *ngIf="event.type == 'text'" [dir]="'ltr'">{{event.body.text}}</p> -->
             <!-- <p *ngIf="event.type == 'member:joined'" class="text-center"> -->
               <!-- <b>{{selectedConversation.members[event.from].user.name}}</b> has joined the conversation</p> -->
-              <p><b></b> has joined the conversation</p>
-          </mat-list-item>
-        </mat-list>
+              <!-- <p><b></b> has joined the conversation</p> -->
+          <!-- </mat-list-item> -->
+        <!-- </mat-list> -->
         <div class="conversation-input">
             <mat-divider></mat-divider>
-            <!-- <mat-form-field class="full-width"> -->
-              <!-- <input matInput placeholder="Start chatting..." name="text" [(ngModel)]="text"> -->
-              <!-- <mat-icon matSuffix (click)="sendText(text)">send</mat-icon> -->
-            <!-- </mat-form-field> -->
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Start chatting..." name="text" [(ngModel)]="text">
+              <mat-icon matSuffix (click)="sendText()">send</mat-icon>
+            </mat-form-field>
           </div>
     <!-- </section> -->
   </mat-sidenav-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private httpService: HttpService) { }
   firstName = new FormControl('', [Validators.required]);
   lastName = new FormControl('', [Validators.required]);
   username = new FormControl('', [Validators.required]);
@@ -27,6 +28,24 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     console.log("register");
+    var registrationData = {
+      first_name: this.firstName.value,
+      last_name: this.lastName.value,
+      user_name: this.username.value,
+      email: this.email.value,
+      password: this.password.value
+    }
+    // let rqstBody = JSONstringify(registrationData);
+    console.log(registrationData);
+
+    this.httpService.postRequest('registration', registrationData).subscribe(data => {
+      console.log(data);
+    }
+      ,
+        err => {
+          console.log(err);
+        }
+    )
 
   }
   getErrorMessageFirstName() {

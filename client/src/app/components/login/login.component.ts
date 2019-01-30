@@ -24,10 +24,12 @@ export class LoginComponent implements OnInit {
     }
     this.httpService.postRequest('login', loginData).subscribe(data => {
       console.log(data);
+      localStorage.setItem('user_id', data.data._id);
+      // localStorage.setItem('token', )
       this.router.navigate(['home']);
     }, err => {
       console.log(err);
-      
+
     })
 
     // this.router.navigate(['home']);
